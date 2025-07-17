@@ -693,3 +693,7 @@ def index():
 @app.route('/excel_indir')
 def excel_indir():
     return send_file("static/sonuc.xlsx", as_attachment=True)
+
+@app.route('/boyali_excel_indir')
+def boyali_excel_indir():
+    return send_file("static/boyali.xlsx", as_attachment=True)
