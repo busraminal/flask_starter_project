@@ -31,7 +31,7 @@
     <div class="container">
         <h2>📊 Zorunlu Alan Kontrol Aracı</h2>
         <form method="post" enctype="multipart/form-data">
-           
+
             <div class="mb-3">
                 <label for="gabim_file" class="form-label">GABİM Dosyası (Excel):</label>
                 <input class="form-control" type="file" name="gabim_file" required>
@@ -41,6 +41,8 @@
             <a href="{{ url_for('excel_indir') }}" class="btn btn-success ms-2">Excel İndir</a>
             {% endif %}
         </form>
+
+        <a href="{{ url_for('boyali_excel_indir') }}" class="btn btn-warning ms-2 mt-2">🧾 Boyalı Excel'i İndir</a>
 
         {% if errors %}
         <div class="alert alert-danger mt-4">
