@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Zorunlu Alan Kontrolü</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 40px;
+            background-color: #f7f9fc;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📊 Zorunlu Alan Kontrol Aracı</h2>
+        <form method="post" enctype="multipart/form-data">
+           
+            <div class="mb-3">
+                <label for="gabim_file" class="form-label">GABİM Dosyası (Excel):</label>
+                <input class="form-control" type="file" name="gabim_file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Kontrol Et</button>
+            {% if results or limit_violations or veri_tipi_uyumsuzluklar %}
+            <a href="{{ url_for('excel_indir') }}" class="btn btn-success ms-2">Excel İndir</a>
+            {% endif %}
+        </form>
+
+        {% if errors %}
+        <div class="alert alert-danger mt-4">
+            <ul>
+                {% for err in errors %}
+                <li>{{ err }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if results %}
+        <div class="mt-5">
+            <h5>🔍 Eksik Zorunlu Alanlar:</h5>
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Rapor No</th>
+                        <th>Satır</th>
+                        <th>Eksik Alan</th>
+                        <th>Fiili Kullanım Amacı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in results %}
+                    <tr>
+                        <td>{{ r["Rapor No"] }}</td>
+                        <td>{{ r["Fiili Kullanım"] }}</td>
+                        <td>{{ r["Alan"] }}</td>
+                        <td>{{ r["Hata"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if limit_violations %}
+        <div class="mt-5">
+            <h5>⚠️ Min/Max Değer ve Tip Uyuşmazlıkları:</h5>
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Rapor No</th>
+                        <th>Veri Başlığı</th>
+                        <th>Veri İçeriği</th>
+                        <th>Min/Max Değer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for l in limit_violations %}
+                    <tr>
+                        <td>{{ l[0] }}</td>
+                        <td>{{ l[1] }}</td>
+                        <td>{{ l[2] }}</td>
+                        <td>{{ l[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        {% if veri_tipi_uyumsuzluklar %}
+        <div class="mt-5">
+            <h5>📌 İçerik Uyumsuzlukları (Beklenen Veri İçeriğine Uymayanlar):</h5>
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Rapor No</th>
+                        <th>Veri Başlığı</th>
+                        <th>Veri İçeriği</th>
+                        <th>Beklenen İçerik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in veri_tipi_uyumsuzluklar %}
+                    <tr>
+                        <td>{{ v[0] }}</td>
+                        <td>{{ v[1] }}</td>
+                        <td>{{ v[2] }}</td>
+                        <td>{{ v[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
