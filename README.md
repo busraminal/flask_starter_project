@@ -1,80 +1,56 @@
-# Flask Starter Project 🚀
+# 🧠 Loro Chat: Flask Tabanlı Çok Dilli Varlık Yönetim Asistanı
 
-Bu proje, Flask ile web uygulamaları geliştirmeye başlamak isteyenler için sade, anlaşılır ve genişletilebilir bir başlangıç altyapısı sunar. Kod yapısı, temel rotalar ve HTML entegrasyonları ile hızlı prototipleme ve geliştirme sürecini kolaylaştırır.
+Bu proje, kullanıcıların web arayüzü üzerinden varlık bilgilerini (taşınmaz, taşıt, ekipman vb.) girdiği, bu verileri JSON formatında saklayan ve analiz eden bir Flask tabanlı uygulamadır.  
+Ayrıca, gömülü LLM ile doğal dilde analiz yapılır ve çıktı PDF olarak sunulur.
 
-## 🔧 Özellikler
+## 🚀 Özellikler
 
-- ✅ Flask tabanlı web sunucu
-- 📁 Modüler klasör yapısı (`templates`, `static`, `routes`, `app.py`)
-- 🧪 Hazır test sayfası (`/hello`, `/login`)
-- 🌐 HTML & CSS destekli ön yüz
-- 🪄 Kolayca genişletilebilir altyapı
+- ✅ Flask tabanlı hızlı backend
+- ✅ JSON formatında veri kaydı
+- ✅ Manuel form, CSV/JSON dosya yükleme desteği
+- ✅ Türkçe, İngilizce, Fransızca dil desteği
+- ✅ Ollama tabanlı LLM entegresi (yerel)
+- ✅ Grafik üretimi (bar, çizgi, pasta)
+- ✅ Otomatik PDF raporu oluşturma
+- ✅ Tek dosyalı statik grafik yapısı (`/static/grafik.png`)
 
-## 🗂️ Klasör Yapısı
+## 📦 Kullanılan Teknolojiler
 
-flask_starter_project/
-│
-├── app.py # Uygulamanın başlangıç dosyası
-├── templates/ # HTML dosyaları
-│ ├── base.html
-│ ├── index.html
-│ ├── hello.html
-│ └── login.html
-├── static/ # CSS, JS, görseller
-│ └── style.css
-└── README.md # Proje açıklamaları (bu dosya)
+- Python + Flask
+- HTML5 / Bootstrap 5
+- Chart.js / Matplotlib
+- JSON tabanlı veri saklama
+- ReportLab (PDF oluşturma)
+- Ollama + Mistral / Phi-3 (LLM)
 
-bash
+## 🔧 Kurulum
+
+pip install flask matplotlib reportlab
+python app.py
+🧪 Test Süreci
+/ ana sayfası: form, dosya yükleme, dil seçimi
+
+/grafik.png: her analiz sonrası üzerine yazılan grafik
+
+/rapor.pdf: PDF rapor çıktısı (grafik + LLM analiz)
+
+varliklar.json: sistemin kalıcı veri deposu
+
+📂 Dosya Yapısı
+pgsql
 Kopyala
 Düzenle
-## 🚀 Başlarken
-
-### Gereksinimler
-
-- Python 3.7+
-- Flask
-
-### Kurulum
-
-1. Depoyu klonlayın:
-
-bash
-git clone https://github.com/busraminal/flask_starter_project.git
-cd flask_starter_project
-Sanal ortam oluşturun ve aktive edin:
-
-
-python -m venv venv
-source venv/bin/activate  # (Windows: venv\Scripts\activate)
-Bağımlılıkları kurun:
-
-
-pip install flask
-Uygulamayı çalıştırın:
-
-
-python app.py
-Tarayıcınızda şu adresi açın:
-👉 http://127.0.0.1:5000
-
-🧩 Genişletme Fikirleri
-Kullanıcı doğrulama sistemi (Flask-Login)
-
-Form desteği (Flask-WTF)
-
-Veritabanı bağlantısı (SQLAlchemy, SQLite)
-
-RESTful API endpoint’leri
-
-Bootstrap entegrasyonu
-
-👩‍💻 Katkıda Bulun
-Katkılar memnuniyetle karşılanır! Fork’layın, geliştirin, pull request gönderin 🚀
-Yıldız bırakmayı unutmayın ⭐
-
-📝 Lisans
-Bu proje açık kaynaklıdır ve MIT Lisansı ile lisanslanmıştır.
-
-💡 Geliştirici: Büşra Mina AL
-📧 İletişim: www.linkedin.com/in/bmi̇nal60135806
-🦾 Proje Amacı: Flask ile üretmeye başlamak için sade ve işlevsel bir temel yapı sunmak.
+├── app.py
+├── varliklar.json
+├── static/
+│   └── grafik.png
+├── templates/
+│   └── index.html
+└── uploads/
+    └── yüklenen CSV/JSON dosyaları
+    
+👩‍💻 Geliştirici
+Büşra Mina AL
+Yapay zekâ mühendisliği | Endüstri mühendisliği
+Disiplinler arası üretken çözümler geliştirir, projeleri yalnızca kod değil anlam üzerine kurar.
+www.linkedin.com/in/bmi̇nal60135806
