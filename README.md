@@ -60,8 +60,8 @@ Ardından tarayıcında http://127.0.0.1:5000/ adresine git.
 
 👩‍💻 Geliştirici
 Büşra Mina AL
-Yapay zekâ & sistem mühendisi — veriyle konuşan arayüzler geliştirir.
-🧠 “Veri doğruysa sistem güçlüdür” anlayışıyla bu uygulamayı geliştirmiştir.
+Yapay zekâ mühendisi & Endüstri mühendisi — AI tutkunu.
+
 www.linkedin.com/in/bmi̇nal60135806
 
 📜 Lisans
