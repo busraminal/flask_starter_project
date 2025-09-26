@@ -60,7 +60,7 @@ Ardından tarayıcında http://127.0.0.1:5000/ adresine git.
 
 👩‍💻 Geliştirici
 Büşra Mina AL
-Yapay zekâ mühendisi & Endüstri mühendisi — AI tutkunu.
+Yapay zekâ mühendisi & Endüstri mühendisi 
 
 www.linkedin.com/in/bmi̇nal60135806
 
