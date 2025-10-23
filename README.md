@@ -1,4 +1,4 @@
-# 🟡 Zorunlu Alan Kontrol Sistemi (Excel Tabanlı Flask Uygulaması)
+# Zorunlu Alan Kontrol Sistemi (Excel Tabanlı Flask Uygulaması)
 
 Bu proje, kullanıcıdan alınan `.xlsx` formatlı Excel dosyalarını önceden tanımlı kurallara göre analiz eden ve eksik/kritik alanları **renklendirerek (örneğin sarı)** kullanıcıya sunan bir **veri denetim sistemidir**.
 
