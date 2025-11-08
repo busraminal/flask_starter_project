@@ -1,68 +1,86 @@
-# Zorunlu Alan Kontrol Sistemi (Excel Tabanlı Flask Uygulaması)
+# 📊 Zorunlu Alan Kontrol Sistemi (Excel Tabanlı Flask Uygulaması)
 
-Bu proje, kullanıcıdan alınan `.xlsx` formatlı Excel dosyalarını önceden tanımlı kurallara göre analiz eden ve eksik/kritik alanları **renklendirerek (örneğin sarı)** kullanıcıya sunan bir **veri denetim sistemidir**.
+Bu proje, kullanıcıdan alınan `.xlsx` formatlı Excel dosyalarını **zorunlu alan şemasına göre otomatik kontrol eden**, eksik/kritik hücreleri **sarı renkle işaretleyip** kullanıcıya geri sunan bir veri kalite denetim sistemidir.
 
-## 🎯 Proje Amacı
+---
 
-- Zorunlu alan içeren veri setlerinde eksik veya hatalı bilgilerin tespiti
-- Otomatikleştirilmiş **veri kalitesi kontrolü**
-- Excel dosyasındaki kritik eksikleri **renkli biçimde vurgulamak**
+## 🎯 Amaç
+- Veri giriş hatalarını hızlıca tespit etmek
+- Zorunlu alan ihlallerini otomatik işaretlemek
+- İnsan hatasını azaltarak veri standardizasyonunu güçlendirmek
 
 ---
 
 ## 🚀 Özellikler
 
-- ✅ Excel dosyası yükleme (drag & drop / file picker)
-- ✅ Zorunlu alan tanımı şemasıyla karşılaştırma
-- ✅ Eksik/hatalı hücrelerin sarıya boyanması
-- ✅ Anlık görsel çıktı ve doğrulama tablosu
-- ✅ Flask tabanlı web arayüzü
-- ✅ VS Code uyumlu çalışma yapısı
+| Özellik | Açıklama |
+|--------|---------|
+| 📁 Dosya Yükleme | Kullanıcı `.xlsx` dosyasını arayüzden yükler |
+| ✅ Zorunlu Alan Kontrolü | Sistem dosyayı şablonla karşılaştırır |
+| 🎨 Renkli Vurgu | Eksik/hatalı hücreler **sarı renge boyanır** |
+| 🔄 Anlık İşleme | Sonuç kullanıcıya anında sunulur |
+| 🌐 Web Arayüzü | Flask tabanlı sade ve hızlı UI |
 
 ---
 
 ## 🧠 Kullanım Senaryosu
-
-1. Kullanıcı `.xlsx` dosyasını yükler
-2. Sistem bu dosyayı, tanımlı zorunlu alanlara göre kontrol eder
-3. Eksik alanlar belirlenir
-4. Sonuç dosyası:
-   - Sarıya boyalı hücreler ile görsel çıktı
-   - Hangi satır/hücrede eksiklik olduğu
-   - Ek olarak tablo halinde detay rapor (isteğe bağlı)
+1. Kullanıcı dosyasını yükler.
+2. Sistem `zorunlu_saha_sablonu.xlsx` içindeki alanlarla karşılaştırır.
+3. Eksik/hatalı hücreler tespit edilir ve sarı renkle boya uygulanır.
+4. İşlenmiş dosya kullanıcının indirme sayfasına sunulur.
 
 ---
 
-## 📦 Kullanılan Teknolojiler
-
-- **Python**
-- **Flask** (backend)
-- **OpenPyXL / Pandas** (Excel işleme)
-- **HTML + Bootstrap** (arayüz)
-- **Matplotlib / Seaborn** (grafik opsiyonel)
+## 🧱 Kullanılan Teknolojiler
+- Python
+- Flask
+- Pandas
+- OpenPyXL
+- HTML + Bootstrap (UI)
+- *(Opsiyonel)* Matplotlib / Seaborn – hata analiz grafikleri için
 
 ---
 
-## 🗂️ Dosya Yapısı
+## 📂 Proje Yapısı
 
-📄 app.py # Flask uygulaması
-📁 templates/
-└── index.html # Ana yükleme ve sonuç arayüzü
-📁 static/
-└── style.css # Sarı boyama + tablo stilizasyonu
-📄 zorunlu_saha_sablonu.xlsx # Zorunlu alan şeması
-📄 uploads/ # Kullanıcının yüklediği dosyalar
+```
+ZorunluAlanKontrol/
+│
+├── app.py                         # Flask uygulaması
+├── zorunlu_saha_sablonu.xlsx      # Zorunlu alan şeması
+├── uploads/                       # Kullanıcı dosyalarının işlendiği klasör
+│
+├── templates/
+│   └── index.html                 # Yükleme ve sonuç sayfası
+│
+└── static/
+    └── style.css                  # Sarı işaretleme + tablo tasarımları
+```
 
-## 🧪 Kurulum
+---
+
+## 🧪 Kurulum & Çalıştırma
+
+```bash
 pip install flask pandas openpyxl
 python app.py
-Ardından tarayıcında http://127.0.0.1:5000/ adresine git.
+```
 
-👩‍💻 Geliştirici
-Büşra Mina AL
-Yapay zekâ mühendisi & Endüstri mühendisi 
+Tarayıcıda aç:  
+```
+http://127.0.0.1:5000/
+```
 
-www.linkedin.com/in/bmi̇nal60135806
+---
 
-📜 Lisans
-Bu proje eğitim ve iç süreçlerde kullanılmak üzere açık kaynak olarak paylaşılmıştır.
+## 👩‍💻 Geliştirici
+**Büşra Mina AL**  
+Yapay Zekâ Mühendisi & Endüstri Mühendisi  
+
+LinkedIn: https://www.linkedin.com/in/bmi̇nal60135806
+
+---
+
+## 📜 Lisans
+Bu proje eğitim ve kurum içi süreçlerde kullanılmak üzere paylaşılmıştır.  
+Dış veya ticari kullanım için geliştirici izni gereklidir.
